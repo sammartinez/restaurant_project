@@ -20,6 +20,7 @@
                 protected function tearDown()
                 {
                     Cuisine::deleteAll();
+                    Restaurant::deleteAll();
                 }
 
                 function test_getCuisineName()
