@@ -23,6 +23,16 @@
                 return $this->id;
             }
 
+            // function getRestaurants()
+            // {
+            //     $restaurants = array();
+            //     $returned_restaurants = $GLOBALS['DB']->query("SELECT * FROM restaurant WHERE cuisine_id = {$this->getId()};");
+            //
+            //     foreach($returned_restaurants as $restaurant) {
+            //         $
+            //     }
+            // }
+
             //setters
             function setCuisineName($new_cuisine_name)
             {
@@ -49,6 +59,8 @@
                 $GLOBALS['DB']->exec("UPDATE cuisine SET name = '{new_cuisine_name}' WHERE id = {$this->getId()};");
                 $this->setCuisineName($new_cuisine_name);
             }
+
+            
 
             //Static functions
             static function getAll()
