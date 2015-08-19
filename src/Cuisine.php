@@ -24,9 +24,9 @@
             }
 
             //setters
-            function setCuisineName($new_name)
+            function setCuisineName($new_cuisine_name)
             {
-                $this->cuisine_name = (string) $new_name;
+                $this->cuisine_name = (string) $new_cuisine_name;
             }
 
             //save function
@@ -38,10 +38,10 @@
             }
 
             //Update function
-            function update($new_name)
+            function update($new_cuisine_name)
             {
-                $GLOBALS['DB']->exec("UPDATE cuisine SET name = '{new_name}' WHERE id = {$this->getId()};");
-                $this->setCuisineName($new_name);
+                $GLOBALS['DB']->exec("UPDATE cuisine SET name = '{new_cuisine_name}' WHERE id = {$this->getId()};");
+                $this->setCuisineName($new_cuisine_name);
             }
 
             //Static functions
