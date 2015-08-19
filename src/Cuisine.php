@@ -60,7 +60,7 @@
                 $this->setCuisineName($new_cuisine_name);
             }
 
-            
+
 
             //Static functions
             static function getAll()
