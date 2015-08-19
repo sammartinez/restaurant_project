@@ -124,6 +124,25 @@
                     //Assert
                     $this->assertEquals("sushi", $test_Cuisine->getCuisineName());
                 }
+
+                function testDelete()
+                {
+                    //Arrange
+                    $name = "burgers";
+                    $id = null;
+                    $test_Cuisine = new Cuisine($name, $id);
+                    $test_Cuisine->save();
+
+                    $name2 = "sushi";
+                    $test_Cuisine2 = new Cuisine($name2, $id);
+                    $test_Cuisine2->save();
+
+                    //Act
+                    $test_Cuisine->delete();
+
+                    //Assert
+                    $this->assertEquals([$test_Cuisine2], Cuisine::getAll());
+                }
         }
 
  ?>

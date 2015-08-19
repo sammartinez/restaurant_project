@@ -37,6 +37,12 @@
 
             }
 
+            //Delete function
+            function delete()
+            {
+                $GLOBALS['DB']->exec("DELETE FROM cuisine WHERE id = {$this->getId()};");
+            }
+
             //Update function
             function update($new_cuisine_name)
             {
