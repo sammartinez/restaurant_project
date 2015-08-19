@@ -175,6 +175,31 @@
                 //Assert
                 $this->assertEquals($test_restaurant, $result);
             }
+
+            function test_update()
+            {
+                //Arrange
+                $name = "Drinks";
+                $id = null;
+                $test_Cuisine = new Cuisine($name, $id);
+                $test_Cuisine->save();
+
+                $restaurant = "Aalto";
+                $address = "123 Belmont";
+                $phone = "123-456-7890";
+                $cuisine_id = $test_Cuisine->getId();
+                $test_restaurant = new Restaurant($restaurant, $address, $phone, $cuisine_id, $id);
+                $test_restaurant->save();
+
+
+                $new_restaurant_name = "HobNob";
+
+                //Act
+                $test_restaurant->update($new_restaurant_name);
+
+                //Assert
+                $this->assertEquals("HobNob", $test_restaurant->getName());
+            }
         }
 
  ?>
