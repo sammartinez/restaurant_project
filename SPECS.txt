@@ -1,0 +1,4 @@
+---------Zero Case-----------
+Behavior: Adding a Name to our Cuisine Class
+Input: "Burgers"
+Output: "Burgers"
