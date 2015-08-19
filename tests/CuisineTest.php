@@ -107,6 +107,23 @@
                     //Assert
                     $this->assertEquals($test_Cuisine, $result);
                 }
+
+                function test_update()
+                {
+                    //Arrange
+                    $name = "burgers";
+                    $id = null;
+                    $test_Cuisine = new Cuisine($name, $id);
+                    $test_Cuisine->save();
+
+                    $new_cuisine_name = "sushi";
+
+                    //Act
+                    $test_Cuisine->update($new_cuisine_name);
+
+                    //Assert
+                    $this->assertEquals("sushi", $test_Cuisine->getCuisineName());
+                }
         }
 
  ?>

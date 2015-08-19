@@ -37,6 +37,13 @@
 
             }
 
+            //Update function
+            function update($new_cuisine_name)
+            {
+                $GLOBALS['DB']->exec("UPDATE cuisine SET name = '{new_name}' WHERE id = {$this->getId()};");
+                $this->setCuisineName($new_cuisine_name);
+            }
+
             //Static functions
             static function getAll()
             {
