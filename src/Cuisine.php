@@ -23,15 +23,23 @@
                 return $this->id;
             }
 
-            // function getRestaurants()
-            // {
-            //     $restaurants = array();
-            //     $returned_restaurants = $GLOBALS['DB']->query("SELECT * FROM restaurant WHERE cuisine_id = {$this->getId()};");
-            //
-            //     foreach($returned_restaurants as $restaurant) {
-            //         $
-            //     }
-            // }
+            function getRestaurants()
+            {
+                $restaurants = array();
+                $returned_restaurants = $GLOBALS['DB']->query("SELECT * FROM restaurant WHERE cuisine_id = {$this->getId()};");
+
+                foreach($returned_restaurants as $restaurant) {
+                    $name = $restaurant['name'];
+                    $address = $restaurant['address'];
+                    $phone = $restaurant['phone'];
+                    $cuisine_id = $restaurant['cuisine_id'];
+                    $id = $restaurant['id'];
+                    $new_restaurant = new Restaurant($name, $address, $phone, $cuisine_id, $id);
+                    array_push($restaurants, $new_restaurant);
+                }
+
+                return $restaurants;
+            }
 
             //setters
             function setCuisineName($new_cuisine_name)

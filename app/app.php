@@ -19,7 +19,13 @@
     // Get Calls
     $app->get("/", function() use($app) {
 
-        return $app['twig']->render('index.html.twig', array('Cuisine' => Cuisine::getAll()));
+        return $app['twig']->render('index.html.twig', array('cuisines' => Cuisine::getAll()));
     });
+
+    $app->get("/cuisines/{id}", function($id) use ($app) {
+  $cuisine = Cuisine::find($id);
+
+  return $app['twig']->render('cuisines.html.twig', array('cuisine' => $cuisine, 'restaurants' => $cuisine->getRestaurants()));
+});
 
  ?>

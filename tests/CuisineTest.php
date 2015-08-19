@@ -23,6 +23,35 @@
                     Restaurant::deleteAll();
                 }
 
+                function test_GetRestaurants()
+                {
+                    //Arrange
+                    $name = "Drinks";
+                    $id = null;
+                    $test_cuisine = new Cuisine($name, $id);
+                    $test_cuisine->save();
+
+                    $restaurant = "Aalto";
+                    $address = "123 Belmont";
+                    $phone = "123-456-7890";
+                    $cuisine_id = $test_cuisine->getId();
+                    $test_restaurant = new Restaurant($restaurant, $address, $phone, $cuisine_id, $id);
+                    $test_restaurant->save();
+
+                    $restaurant2 = "Aalto";
+                    $address2 = "123 Belmont";
+                    $phone2 = "123-456-7890";
+                    $cuisine_id2 = $test_cuisine->getId();
+                    $test_restaurant2 = new Restaurant($restaurant, $address, $phone, $cuisine_id, $id);
+                    $test_restaurant2->save();
+
+                    //Act
+                    $result = $test_cuisine->getRestaurants();
+
+                    //Assert
+                    $this->assertEquals([$test_restaurant, $test_restaurant2], $result);
+                }
+
                 function test_getCuisineName()
                 {
                     //Arrange
