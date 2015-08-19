@@ -200,6 +200,35 @@
                 //Assert
                 $this->assertEquals("HobNob", $test_restaurant->getName());
             }
+
+            function testDelete()
+            {
+                //Arrange
+                $name = "Drinks";
+                $id = null;
+                $test_Cuisine = new Cuisine($name, $id);
+                $test_Cuisine->save();
+
+                $restaurant = "Aalto";
+                $address = "123 Belmont";
+                $phone = "123-456-7890";
+                $cuisine_id = $test_Cuisine->getId();
+                $test_restaurant = new Restaurant($restaurant, $address, $phone, $cuisine_id, $id);
+                $test_restaurant->save();
+
+                $restaurant2 = "HobNob";
+                $address2 = "999 somewhere";
+                $phone2 = "234-555-5555";
+                $cuisine_id2 = $test_Cuisine->getId();
+                $test_restaurant2 = new Restaurant($restaurant, $address, $phone, $cuisine_id, $id);
+                $test_restaurant2->save();
+
+                //Act
+                $test_restaurant->delete();
+
+                //Assert
+                $this->assertEquals([$test_restaurant2], Restaurant::getAll());
+            }
         }
 
  ?>
