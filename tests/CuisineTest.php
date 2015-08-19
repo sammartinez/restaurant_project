@@ -78,6 +78,35 @@
                     $this->assertEquals([], $result);
 
                 }
+
+                function test_getId()
+                {
+                    //Arrange
+                    $name = "burgers";
+                    $id = 1;
+                    $test_Cuisine = new Cuisine($name, $id);
+
+                    //Act
+                    $result = $test_Cuisine->getId();
+
+                    //Assert
+                    $this->assertEquals(true, is_numeric($result));
+                }
+
+                function test_find()
+                {
+
+                    //Arrange
+                    $name = "burgers";
+                    $test_Cuisine = new Cuisine($name);
+                    $test_Cuisine->save();
+
+                    //Act
+                    $result = Cuisine::find($test_Cuisine->getId());
+
+                    //Assert
+                    $this->assertEquals($test_Cuisine, $result);
+                }
         }
 
  ?>
