@@ -1,4 +1,31 @@
+
+
 ---------Zero Case-----------
-Behavior: Adding a Name to our Cuisine Class
+Behavior: Adding a name to our Cuisine Class
 Input: "Burgers"
 Output: "Burgers"
+
+---------First Case-----------
+Behavior: Update (or Change) a name to our Cuisine Class
+Input: "Burgers"
+Output: "Sushi"
+
+---------Second Case-----------
+Behavior: Delete a name in our Cuisine Class
+Input: "Sushi"
+Output: null
+
+---------Third Case-----------
+Behavior: Adding a name to our Cuisine Class
+Input: "Pok Pok"
+Output: "Pok Pok"
+
+---------Fourth Case-----------
+Behavior: Update (or Change) a name to our Cuisine Class
+Input: "Burger King"
+Output: "McDonalds"
+
+---------Fifth Case-----------
+Behavior: Delete a name in our Cuisine Class
+Input: "Dick's Kitchen"
+Output: null
