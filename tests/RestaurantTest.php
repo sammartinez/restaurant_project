@@ -64,6 +64,28 @@
                 //Assert
                 $this->assertEquals(true, is_numeric($result));
             }
+
+            function test_save()
+            {
+                //Arrange
+                $name = "Drinks";
+                $id = null;
+                $test_Cuisine = new Cuisine($name, $id);
+                $test_Cuisine->save();
+
+                $restaurant = "Aalto";
+                $address = "123 Belmont";
+                $phone = "123-456-7890";
+                $cuisine_id = $test_Cuisine->getId();
+                $test_restaurant = new Restaurant($restaurant, $address, $phone, $cuisine_id, $id);
+
+                //Act
+                $test_restaurant->save();
+
+                //Assert
+                $result = Restaurant::getAll();
+                $this->assertEquals($test_restaurant, $result[0]);
+            }
         }
 
  ?>
