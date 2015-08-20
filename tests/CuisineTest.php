@@ -17,162 +17,162 @@
         class CuisineTest extends PHPUnit_Framework_TestCase
         {
 
-                protected function tearDown()
-                {
-                    Cuisine::deleteAll();
-                    Restaurant::deleteAll();
-                }
+              protected function tearDown()
+              {
+                  Cuisine::deleteAll();
+                  Restaurant::deleteAll();
+              }
 
-                function test_GetRestaurants()
-                {
-                    //Arrange
-                    $name = "Drinks";
-                    $id = null;
-                    $test_cuisine = new Cuisine($name, $id);
-                    $test_cuisine->save();
+              function test_GetRestaurants()
+              {
+                  //Arrange
+                  $name = "Drinks";
+                  $id = null;
+                  $test_cuisine = new Cuisine($name, $id);
+                  $test_cuisine->save();
 
-                    $restaurant = "Aalto";
-                    $address = "123 Belmont";
-                    $phone = "123-456-7890";
-                    $cuisine_id = $test_cuisine->getId();
-                    $test_restaurant = new Restaurant($restaurant, $address, $phone, $cuisine_id, $id);
-                    $test_restaurant->save();
+                  $restaurant = "Aalto";
+                  $address = "123 Belmont";
+                  $phone = "123-456-7890";
+                  $cuisine_id = $test_cuisine->getId();
+                  $test_restaurant = new Restaurant($restaurant, $address, $phone, $cuisine_id, $id);
+                  $test_restaurant->save();
 
-                    $restaurant2 = "Aalto";
-                    $address2 = "123 Belmont";
-                    $phone2 = "123-456-7890";
-                    $cuisine_id2 = $test_cuisine->getId();
-                    $test_restaurant2 = new Restaurant($restaurant, $address, $phone, $cuisine_id, $id);
-                    $test_restaurant2->save();
+                  $restaurant2 = "Aalto";
+                  $address2 = "123 Belmont";
+                  $phone2 = "123-456-7890";
+                  $cuisine_id2 = $test_cuisine->getId();
+                  $test_restaurant2 = new Restaurant($restaurant, $address, $phone, $cuisine_id, $id);
+                  $test_restaurant2->save();
 
-                    //Act
-                    $result = $test_cuisine->getRestaurants();
+                  //Act
+                  $result = $test_cuisine->getRestaurants();
 
-                    //Assert
-                    $this->assertEquals([$test_restaurant, $test_restaurant2], $result);
-                }
+                  //Assert
+                  $this->assertEquals([$test_restaurant, $test_restaurant2], $result);
+              }
 
-                function test_getCuisineName()
-                {
-                    //Arrange
-                    $name = "burgers";
-                    $test_cuisine = new Cuisine($name);
+              function test_getCuisineName()
+              {
+                  //Arrange
+                  $name = "burgers";
+                  $test_cuisine = new Cuisine($name);
 
-                    //Act
-                    $result = $test_cuisine->getCuisineName();
+                  //Act
+                  $result = $test_cuisine->getCuisineName();
 
-                    //Assert
-                    $this->assertEquals($name, $result);
-                }
+                  //Assert
+                  $this->assertEquals($name, $result);
+              }
 
-                function test_save()
-                {
-                    //Arrange
-                    $name = "burgers";
-                    $test_cuisine = new Cuisine($name);
-                    $test_cuisine->save();
+              function test_save()
+              {
+                  //Arrange
+                  $name = "burgers";
+                  $test_cuisine = new Cuisine($name);
+                  $test_cuisine->save();
 
-                    //Act
-                    $result = Cuisine::getAll();
+                  //Act
+                  $result = Cuisine::getAll();
 
-                    //Assert
-                    $this->assertEquals($test_cuisine, $result[0]);
-                }
+                  //Assert
+                  $this->assertEquals($test_cuisine, $result[0]);
+              }
 
-                function test_getAll()
-                {
-                    //Arrange
-                    $name = "burgers";
-                    $test_cuisine = new Cuisine($name);
-                    $test_cuisine->save();
+              function test_getAll()
+              {
+                  //Arrange
+                  $name = "burgers";
+                  $test_cuisine = new Cuisine($name);
+                  $test_cuisine->save();
 
-                    //Act
-                    $result = Cuisine::getAll();
+                  //Act
+                  $result = Cuisine::getAll();
 
-                    //Assert
-                    $this->assertEquals([$test_cuisine], $result);
-                }
+                  //Assert
+                  $this->assertEquals([$test_cuisine], $result);
+              }
 
-                function test_deleteAll()
-                {
-                    //Arrange
-                    $name = "burgers";
-                    $test_cuisine = new Cuisine($name);
-                    $test_cuisine->save();
+              function test_deleteAll()
+              {
+                  //Arrange
+                  $name = "burgers";
+                  $test_cuisine = new Cuisine($name);
+                  $test_cuisine->save();
 
-                    //Act
-                    Cuisine::deleteAll();
-                    $result = Cuisine::getAll();
+                  //Act
+                  Cuisine::deleteAll();
+                  $result = Cuisine::getAll();
 
-                    //Assert
-                    $this->assertEquals([], $result);
+                  //Assert
+                  $this->assertEquals([], $result);
 
-                }
+              }
 
-                function test_getId()
-                {
-                    //Arrange
-                    $name = "burgers";
-                    $id = 1;
-                    $test_cuisine = new Cuisine($name, $id);
+              function test_getId()
+              {
+                  //Arrange
+                  $name = "burgers";
+                  $id = 1;
+                  $test_cuisine = new Cuisine($name, $id);
 
-                    //Act
-                    $result = $test_cuisine->getId();
+                  //Act
+                  $result = $test_cuisine->getId();
 
-                    //Assert
-                    $this->assertEquals(true, is_numeric($result));
-                }
+                  //Assert
+                  $this->assertEquals(true, is_numeric($result));
+              }
 
-                function test_find()
-                {
+              function test_find()
+              {
 
-                    //Arrange
-                    $name = "burgers";
-                    $test_cuisine = new Cuisine($name);
-                    $test_cuisine->save();
+                  //Arrange
+                  $name = "burgers";
+                  $test_cuisine = new Cuisine($name);
+                  $test_cuisine->save();
 
-                    //Act
-                    $result = Cuisine::find($test_cuisine->getId());
+                  //Act
+                  $result = Cuisine::find($test_cuisine->getId());
 
-                    //Assert
-                    $this->assertEquals($test_cuisine, $result);
-                }
+                  //Assert
+                  $this->assertEquals($test_cuisine, $result);
+              }
 
-                function test_update()
-                {
-                    //Arrange
-                    $name = "burgers";
-                    $id = null;
-                    $test_cuisine = new Cuisine($name, $id);
-                    $test_cuisine->save();
+              function test_update()
+              {
+                  //Arrange
+                  $name = "burgers";
+                  $id = null;
+                  $test_cuisine = new Cuisine($name, $id);
+                  $test_cuisine->save();
 
-                    $new_cuisine_name = "sushi";
+                  $new_cuisine_name = "sushi";
 
-                    //Act
-                    $test_cuisine->update($new_cuisine_name);
+                  //Act
+                  $test_cuisine->update($new_cuisine_name);
 
-                    //Assert
-                    $this->assertEquals("sushi", $test_cuisine->getCuisineName());
-                }
+                  //Assert
+                  $this->assertEquals("sushi", $test_cuisine->getCuisineName());
+              }
 
-                function testDelete()
-                {
-                    //Arrange
-                    $name = "burgers";
-                    $id = null;
-                    $test_cuisine = new Cuisine($name, $id);
-                    $test_cuisine->save();
+              function testDelete()
+              {
+                  //Arrange
+                  $name = "burgers";
+                  $id = null;
+                  $test_cuisine = new Cuisine($name, $id);
+                  $test_cuisine->save();
 
-                    $name2 = "sushi";
-                    $test_cuisine2 = new Cuisine($name2, $id);
-                    $test_cuisine2->save();
+                  $name2 = "sushi";
+                  $test_cuisine2 = new Cuisine($name2, $id);
+                  $test_cuisine2->save();
 
-                    //Act
-                    $test_cuisine->delete();
+                  //Act
+                  $test_cuisine->delete();
 
-                    //Assert
-                    $this->assertEquals([$test_cuisine2], Cuisine::getAll());
-                }
+                  //Assert
+                  $this->assertEquals([$test_cuisine2], Cuisine::getAll());
+              }
         }
 
  ?>
