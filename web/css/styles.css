@@ -1,0 +1,18 @@
+body {
+    background-image: url(http://media1.fdncms.com/styleweekly/imager/at-evo-fine-sichuan-cuisine-in-stratford-h/u/original/1865385/food13_evo_chinese.jpg);
+    background-size: auto auto;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color:#fff;
+    text-shadow: 1px 1px 2px black;
+}
+
+label, p {
+    color:#fff;
+    text-shadow: 1px 1px 2px black;
+}
+
+button {
+    text-shadow: 1px 1px 2px black;
+}
