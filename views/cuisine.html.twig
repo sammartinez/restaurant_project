@@ -10,7 +10,9 @@
             <p>Here are the restaurants:</p>
             <ul>
                 {% for restaurant in restaurants %}
-                    <li> <h2> {{restaurant.getName }}</h2></li>
+                    <h2> {{restaurant.getName }} </h2>
+                    <li> {{ restaurant.getAddress }} </li>
+                    <li> {{ restaurant.getPhone }} </li>
                 {% endfor %}
             </ul>
             {% endif %}
