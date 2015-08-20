@@ -15,6 +15,7 @@
                     <h2> {{restaurant.getName }} </h2>
                     <li> {{ restaurant.getAddress }} </li>
                     <li> {{ restaurant.getPhone }} </li>
+
                 {% endfor %}
             </ul>
             {% endif %}
@@ -26,20 +27,23 @@
                     <input id="cuisine_id" type="hidden" name="cuisine_id" value="{{ cuisine.getId }}">
 
                     <label for="name">Restaurant name:</label>
-                    <input type="text" name="name" id="name">
+                    <input type="text" name="name" class="form-control" id="name">
 
                     <label for="address">Address:</label>
-                    <input type="text" name="address" id="address">
+                    <input type="text" name="address" class="form-control" id="address">
 
                     <label for="phone">Phone:</label>
-                    <input type="text" name="phone" id="phone">
+                    <input type="text" name="phone" class="form-control" id="phone">
 
+
+                </br>
                     <button type="submit" class="btn btn-info">Add Restaurant</button>
                 </form>
                 <form action="/delete_restaurants" method="post">
                     <button type="submit" class="btn btn-danger">Delete Restaurants</button>
                 </form>
             </div>
+            <p><a href="/cuisines/{{ cuisine.getId }}/edit">Edit this cuisine</a></p>
             <p><a href="/">Home</a></p>
         </div>
     </body>

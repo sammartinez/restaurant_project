@@ -32,6 +32,7 @@
                     $name = $restaurant['name'];
                     $address = $restaurant['address'];
                     $phone = $restaurant['phone'];
+                    //$rating = $restaurant['rating'];
                     $cuisine_id = $restaurant['cuisine_id'];
                     $id = $restaurant['id'];
                     $new_restaurant = new Restaurant($name, $address, $phone, $cuisine_id, $id);
@@ -64,7 +65,7 @@
             //Update function
             function update($new_cuisine_name)
             {
-                $GLOBALS['DB']->exec("UPDATE cuisine SET name = '{new_cuisine_name}' WHERE id = {$this->getId()};");
+                $GLOBALS['DB']->exec("UPDATE cuisine SET name = '{$new_cuisine_name}' WHERE id = {$this->getId()};");
                 $this->setCuisineName($new_cuisine_name);
             }
 

@@ -6,6 +6,7 @@
         private $name;
         private $address;
         private $phone;
+        //private $rating;
         private $cuisine_id;
         private $id;
 
@@ -15,6 +16,7 @@
             $this->name = $name;
             $this->address = $address;
             $this->phone = $phone;
+            //$this->rating = $rating;
             $this->cuisine_id = $cuisine_id;
             $this->id = $id;
         }
@@ -35,6 +37,11 @@
             $this->phone = $new_phone;
         }
 
+        // function setRating($new_rating)
+        // {
+        //     $this->rating = $new_rating;
+        // }
+
         //Getters
         function getName()
         {
@@ -50,6 +57,11 @@
         {
             return $this->phone;
         }
+
+        // function getRating()
+        // {
+        //     return $this->rating;
+        // }
 
         function getCuisineId()
         {
@@ -91,6 +103,7 @@
                 $name = $restaurant['name'];
                 $address = $restaurant['address'];
                 $phone = $restaurant['phone'];
+                //$rating = $restaurant['rating'];
                 $cuisine_id = $restaurant['cuisine_id'];
                 $id = $restaurant['id'];
 
