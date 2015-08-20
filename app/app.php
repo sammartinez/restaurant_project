@@ -6,7 +6,7 @@
     //Start Silex app
     $app = new Silex\Application();
 
-    $server = 'mysql:host=localhost;dbname=to_do';
+    $server = 'mysql:host=localhost;dbname=restaurant_projects';
     $username = 'root';
     $password = 'root';
     $DB = new PDO($server, $username, $password);
@@ -29,6 +29,8 @@
 });
 
     //Post Calls
+
+    //Restaurant Post Calls
     $app->post("/restaurants", function() use ($app) {
         $name = $_POST['name'];
         $address = $_POST['address'];
@@ -42,4 +44,28 @@
         return $app['twig']->render('cuisine.html.twig', array('cuisine' => $cuisine, 'restaurants' => $cuisine->getRestaurants()));
     });
 
+    //Cuisine Post Calls
+    $app->post("/cuisines", function() use ($app) {
+        $cuisine = new Cuisine($_POST['cuisine_name']);
+        $cuisine->save();
+
+        return $app['twig']->render('index.html.twig', array('cuisines' => Cuisine::getAll()));
+    });
+
+    //Delete Calls
+
+    //Restaurant Delete Call
+    $app->post("delete_restaurants", function() use ($app) {
+        Restaurant::deleteAll();
+
+        return $app['twig']->render('delete_restaurants.html.twig');
+    });
+
+    //Cuisine Delete Call
+    $app->post("delete_cuisines", function() use ($app) {
+        Cuisine::deleteAll();
+        return $app['twig']->render('delete_cuisines.html.twig');
+    });
+
+    return $app;
  ?>
