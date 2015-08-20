@@ -13,6 +13,7 @@
         $password = 'root';
         $DB = new PDO($server, $username, $password);
 
+
         class RestaurantTest extends PHPUnit_Framework_TestCase
         {
             protected function tearDown()

@@ -6,6 +6,8 @@
     <body>
         <div class="container">
             <h1>{{ cuisine.getCuisineName }}</h1>
+
+
             {% if restaurants is not empty %}
             <p>Here are the restaurants:</p>
             <ul>
@@ -21,7 +23,7 @@
 
             <div class="form-group">
                 <form action="/restaurants" method="post">
-                    <input type="hidden" name="cuisine_id" value="{{ cuisine.getId() }}" id="cuisine_id">
+                    <input id="cuisine_id" type="hidden" name="cuisine_id" value="{{ cuisine.getId }}">
 
                     <label for="name">Restaurant name:</label>
                     <input type="text" name="name" id="name">

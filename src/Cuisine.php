@@ -101,9 +101,8 @@
                     if ($cuisine_id == $search_id) {
                         $found_cuisine = $cuisine;
                     }
-
-                    return $found_cuisine;
                 }
+                return $found_cuisine;
 
             }
         }

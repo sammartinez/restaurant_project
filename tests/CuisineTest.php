@@ -35,6 +35,7 @@
                   $address = "123 Belmont";
                   $phone = "123-456-7890";
                   $cuisine_id = $test_cuisine->getId();
+                  $id = 1;
                   $test_restaurant = new Restaurant($restaurant, $address, $phone, $cuisine_id, $id);
                   $test_restaurant->save();
 
@@ -42,6 +43,7 @@
                   $address2 = "123 Belmont";
                   $phone2 = "123-456-7890";
                   $cuisine_id2 = $test_cuisine->getId();
+                  $id = 2;
                   $test_restaurant2 = new Restaurant($restaurant, $address, $phone, $cuisine_id, $id);
                   $test_restaurant2->save();
 
